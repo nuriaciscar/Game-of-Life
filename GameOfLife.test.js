@@ -1,40 +1,55 @@
-const cuadricula = require("./GameOfLife");
+const matrix = require("./GameOfLife");
 
-describe("Given a cuadricula function", () => {
-  describe("When it starts", () => {
-    test("Then it should return an array fill of all 0", () => {
-      const fila = 5;
-      const columna = 5;
-
-      const expected = [
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
+describe("Given a checkNeighbours function", () => {
+  describe("When it receives checkCompany(1,1)", () => {
+    test("Then it should return a total of 2 ", () => {
+      const input = [
+        [0, 0, 0],
+        [1, 1, 1],
+        [0, 0, 0],
       ];
-
-      const result = crearCuadricula(fila, columna);
-
-      expect(result).crearCuadricula(expected);
-    });
-  });
-
-  describe("When it receives comprobarVecinos(2,2)", () => {
-    test("Then it should return 2", () => {
-      const cuadricula = [
-        [0, 0, 0, 0],
-        [0, 0, 1, 0],
-        [0, 0, 1, 0],
-        [0, 0, 1, 0],
-        [0, 0, 0, 0],
-      ];
-
+      const row = 1;
+      const column = 1;
       const expected = 2;
 
-      const result = comprobarVecinos(2, 2);
+      const result = matrix.checkCompany(input, row, column);
 
-      expect(result).comprobarVecinos(expected);
+      expect(result).toEqual(expected);
+    });
+  });
+  describe("When it receives checkCompany(0,0)", () => {
+    test("Then it should return 2 neighbours", () => {
+      const input = [
+        [1, 1, 0],
+        [1, 0, 0],
+        [0, 0, 0],
+      ];
+      const row = 0;
+      const column = 0;
+      const expected = 2;
+
+      const result = matrix.checkCompany(input, row, column);
+
+      expect(result).toEqual(expected);
+    });
+  });
+  describe("When it receives checkCompany(0,0)", () => {
+    test("Then it should return 2 neighbours", () => {
+      const input = [
+        [0, 1, 0],
+        [0, 1, 0],
+        [0, 1, 0],
+      ];
+
+      const expected = [
+        [0, 0, 0],
+        [1, 1, 1],
+        [0, 0, 0],
+      ];
+
+      const result = matrix.checkMatrix(input);
+
+      expect(result).toEqual(expected);
     });
   });
 });

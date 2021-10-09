@@ -22,42 +22,42 @@ function inicioDelJuego(fila, columna) {
 function comprobarVecinos(fila, columna) {
   let totalVecinos = 0;
 
-  if (fila >= 0 && columna >= 0) {
+  if (fila - 1 >= 0 && columna - 1 >= 0) {
+    console.log(cuadricula[fila - 1][columna - 1]);
     totalVecinos += cuadricula[fila - 1][columna - 1];
   }
 
-  if (fila >= 0) {
+  if (fila - 1 >= 0) {
     totalVecinos += cuadricula[fila - 1][columna];
   }
 
-  if (fila >= 0 && columna < 5) {
+  if (fila - 1 >= 0 && columna + 1 < 5) {
     totalVecinos += cuadricula[fila - 1][columna + 1];
   }
 
-  if (fila < 5 && columna >= 0) {
+  if (fila + 1 < 5 && columna - 1 >= 0) {
     totalVecinos += cuadricula[fila + 1][columna - 1];
   }
 
-  if (columna < 5) {
+  if (columna + 1 < 5) {
     totalVecinos += cuadricula[fila][columna + 1];
   }
 
-  if (fila < 5 && columna >= 0) {
+  if (fila + 1 < 5 && columna - 1 >= 0) {
     totalVecinos += cuadricula[fila + 1][columna - 1];
   }
 
-  if (fila < 5) {
+  if (fila + 1 < 5) {
     totalVecinos += cuadricula[fila + 1][columna];
   }
 
-  if (fila < 5 && columna < 5) {
+  if (fila + 1 < 5 && columna + 1 < 5) {
     totalVecinos += cuadricula[fila + 1][columna + 1];
   }
 
   return totalVecinos;
 }
-
-console.log(comprobarVecinos(0, 2));
+console.log(comprobarVecinos(0, 0));
 
 function vivirMorir(fila, columna) {
   for (let i = 0; i < fila; i++) {

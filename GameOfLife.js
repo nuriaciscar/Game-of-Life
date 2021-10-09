@@ -1,4 +1,4 @@
-const cuadricula = [
+const matrix = [
   [0, 0, 0, 0, 0],
   [0, 0, 1, 0, 0],
   [0, 0, 1, 0, 0],
@@ -6,84 +6,67 @@ const cuadricula = [
   [0, 0, 0, 0, 0],
 ];
 
-console.log(cuadricula);
+console.table(matrix);
 
-function inicioDelJuego(fila, columna) {
-  //Empezar con todo zero
-  for (let i = 0; i < filas; i++) {
-    const cuadricula = [];
-    for (let j = 0; j < columnas; j++) {
-      cuadricula[i][j] = 0;
-    }
+function checkVoisins(matrix, i, j) {
+  let count = 0;
+
+  debugger;
+  if (i - 1 >= 0 && j - 1 >= 0 && matrix[i - 1][j - 1] === 1) {
+    count++;
   }
-  return cuadricula;
+  if (i - 1 >= 0 && matrix[i - 1][j] === 1) {
+    count++;
+  }
+  if (i - 1 >= 0 && j + 1 <= matrix[i].length && matrix[i - 1][j + 1] === 1) {
+    count++;
+  }
+  if (j - 1 >= 0 && matrix[i][j - 1] === 1) {
+    count++;
+  }
+  if (j + 1 <= matrix[i].length && matrix[i][j + 1] === 1) {
+    count++;
+  }
+  if (i + 1 <= matrix.length - 1 && j - 1 >= 0 && matrix[i + 1][j - 1] === 1) {
+    count++;
+  }
+  if (i + 1 < matrix.length && matrix[i + 1][j] === 1) {
+    count++;
+  }
+  if (
+    i + 1 < matrix.length &&
+    j + 1 < matrix[i].length &&
+    matrix[i + 1][j + 1] === 1
+  ) {
+    count++;
+  }
+  return count;
 }
 
-function comprobarVecinos(fila, columna) {
-  let totalVecinos = 0;
-
-  if (fila - 1 >= 0 && columna - 1 >= 0) {
-    console.log(cuadricula[fila - 1][columna - 1]);
-    totalVecinos += cuadricula[fila - 1][columna - 1];
-  }
-
-  if (fila - 1 >= 0) {
-    totalVecinos += cuadricula[fila - 1][columna];
-  }
-
-  if (fila - 1 >= 0 && columna + 1 < 5) {
-    totalVecinos += cuadricula[fila - 1][columna + 1];
-  }
-
-  if (fila + 1 < 5 && columna - 1 >= 0) {
-    totalVecinos += cuadricula[fila + 1][columna - 1];
-  }
-
-  if (columna + 1 < 5) {
-    totalVecinos += cuadricula[fila][columna + 1];
-  }
-
-  if (fila + 1 < 5 && columna - 1 >= 0) {
-    totalVecinos += cuadricula[fila + 1][columna - 1];
-  }
-
-  if (fila + 1 < 5) {
-    totalVecinos += cuadricula[fila + 1][columna];
-  }
-
-  if (fila + 1 < 5 && columna + 1 < 5) {
-    totalVecinos += cuadricula[fila + 1][columna + 1];
-  }
-
-  return totalVecinos;
-}
-console.log(comprobarVecinos(0, 0));
-
-function vivirMorir(fila, columna) {
-  for (let i = 0; i < fila; i++) {
-    for (let j = 0; j < columna; j++) {
-      let marcador = comprobarVecinos(i, j);
-      if (cuadricula[i][j] === 1) {
-        if (totalVecinos === 2 || totalVecinos === 3) {
-        } else {
-          cuadricula[i][j] = 0;
+function checkMatrix(matrix) {
+  let newArr = [];
+  for (let i = 0; i < matrix.length; i++) {
+    newArr[i] = [];
+    for (let j = 0; j < matrix[i].length; j++) {
+      let result = checkVoisins(matrix, i, j);
+      if (matrix[i][j] === 1) {
+        if (result < 2) {
+          newArr[i][j] = 0;
+        } else if (result === 2 || result === 3) {
+          newArr[i][j] = 1;
+        } else if (result > 3) {
+          newArr[i][j] = 0;
         }
-      } else if (cuadricula[i][j] === 0) {
-        if (totalVecinos === 3) {
-          cuadricula[i][j] = 1;
+      } else if (matrix[i][j] === 0) {
+        if (result === 3) {
+          newArr[i][j] = 1;
+        } else {
+          newArr[i][j] = 0;
         }
       }
     }
   }
+  return newArr;
 }
 
-//Poblar cuadricula a boleo
-
-function poblar(fila, columna) {
-  for (let i = 0; i < fila; i++) {
-    for (let j = 0; j < columna; j++) {
-      cuadricula[i][j] = Math.round(Math.random() * 1 + 1);
-    }
-  }
-  return cuadricula;
-}
+console.table(checkMatrix(matrix));

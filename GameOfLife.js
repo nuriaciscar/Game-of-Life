@@ -13,8 +13,6 @@ function createTable() {
     }
  }
 }
-
-  
  
 
 const matrix = [

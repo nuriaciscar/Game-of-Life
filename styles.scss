@@ -1,13 +1,54 @@
 * {
   box-sizing: border-box;
+  font-family: "Anonymous Pro", monospace;
+  font-family: "Cormorant Garamond", serif;
+  font-family: "Scheherazade New", serif;
 }
 
 body {
+  width: auto;
+  height: 100vh;
   padding: 0;
   margin: 0;
+  background-color: rgb(245, 245, 245);
+  background-image: url("./img/degradado3.png");
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: left bottom;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-size: 80px;
+}
+hr {
+  width: 50%;
+  color: black;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   &__grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    flex: 300px;
+    background-color: blue;
   }
 }

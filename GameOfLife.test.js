@@ -36,15 +36,18 @@ describe("Given a checkNeighbours function", () => {
   describe("When it receives checkCompany(0,0)", () => {
     test("Then it should return 2 neighbours", () => {
       const input = [
-        [1, 1, 0],
-        [1, 0, 0],
+        [0, 1, 0],
+        [0, 1, 0],
+        [0, 1, 0],
+      ];
+
+      const expected = [
+        [0, 0, 0],
+        [1, 1, 1],
         [0, 0, 0],
       ];
-      const row = 0;
-      const column = 0;
-      const expected = 2;
 
-      const result = matrix.checkMatrix(input, row, column);
+      const result = matrix.checkMatrix(input);
 
       expect(result).toEqual(expected);
     });

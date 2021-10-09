@@ -6,8 +6,6 @@ const matrix = [
   [0, 0, 0, 0, 0],
 ];
 
-console.table(matrix);
-
 function checkCompany(matrix, i, j) {
   let count = 0;
 

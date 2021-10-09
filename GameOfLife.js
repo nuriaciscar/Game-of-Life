@@ -8,7 +8,7 @@ const matrix = [
 
 console.table(matrix);
 
-function checkNeighbours(matrix, i, j) {
+function checkCompany(matrix, i, j) {
   let count = 0;
 
   if (i - 1 >= 0 && j - 1 >= 0 && matrix[i - 1][j - 1] === 1) {
@@ -47,7 +47,7 @@ function checkMatrix(matrix) {
   for (let i = 0; i < matrix.length; i++) {
     newArr[i] = [];
     for (let j = 0; j < matrix[i].length; j++) {
-      const result = checkNeighbours(matrix, i, j);
+      const result = checkCompany(matrix, i, j);
       if (matrix[i][j] === 1) {
         if (result < 2) {
           newArr[i][j] = 0;
@@ -70,6 +70,6 @@ function checkMatrix(matrix) {
 
 console.table(checkMatrix(matrix));
 
-module_exports = {
-  checkNeighbours,
+module.exports = {
+  checkCompany,
 };

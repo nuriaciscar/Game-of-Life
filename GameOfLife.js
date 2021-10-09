@@ -1,3 +1,22 @@
+const table = document.querySelector(".container__grid);
+
+function createTable() {
+ for (let i = 0; i < 40; i++) {
+   const rows = document.createElement("div");
+    table.appendChild(rows);
+    rows.classList.add("rows", `row-${i}`);
+
+    for (let j = 0; j < 40; j++) {
+      const columns = document.createElement("div");
+      rows.appendChild(col);
+      columns.classList.add("columns", `${i}-${j}`);
+    }
+ }
+}
+
+  
+ 
+
 const matrix = [
   [0, 0, 0, 0, 0],
   [0, 0, 1, 0, 0],
@@ -67,6 +86,8 @@ function checkMatrix(matrix) {
 }
 
 console.table(checkMatrix(matrix));
+
+
 
 module.exports = {
   checkCompany,

@@ -72,4 +72,5 @@ console.table(checkMatrix(matrix));
 
 module.exports = {
   checkCompany,
+  checkMatrix,
 };

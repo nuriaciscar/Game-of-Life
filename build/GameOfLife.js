@@ -3,6 +3,19 @@ const columns = document.getElementsByClassName("game__grid__board__column");
 
 let matrix = [];
 
+const COLORS = [
+  "#973536",
+  "#bfbda8",
+  "#fb4827",
+  "#837e94",
+  "#41adf8",
+  "#d2fd78",
+  "#448f7a",
+  "#e3c6e4",
+];
+
+COLORS[Math.floor(Math.random() * COLORS.length)];
+
 function createBoard() {
   const newBoardGrid = [];
   const newBoard = document.createElement("div");
@@ -42,7 +55,9 @@ function changeColor() {
   const vertical = position[1];
 
   if (this.style.backgroundColor === "transparent") {
-    this.style.backgroundColor = "black";
+    this.style.backgroundColor =
+      COLORS[Math.floor(Math.random() * COLORS.length)];
+
     matrix[horitzontal][vertical] = 1;
   } else {
     this.style.backgroundColor = "transparent";
@@ -131,7 +146,8 @@ function transformBoard(array) {
         document.getElementById(`${i}-${j}`).style.backgroundColor =
           "transparent";
       } else {
-        document.getElementById(`${i}-${j}`).style.backgroundColor = "black";
+        document.getElementById(`${i}-${j}`).style.backgroundColor =
+          COLORS[Math.floor(Math.random() * COLORS.length)];
       }
     }
   }

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll --collect-coverage"
+    "test": "jest --watchAll --collect-coverage",
+    "css": "npx sass src/styles.scss build/styles.css"
   },
   "repository": {
     "type": "git",

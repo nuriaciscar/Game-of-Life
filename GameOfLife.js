@@ -14,13 +14,13 @@ function createBoard() {
   //   boardHTML[0].appendChild(newBoard);
   //   newBoard.appendChild(column);
   // }
-  for (let i = 0; i < 85; i++) {
+  for (let i = 0; i < 60; i++) {
     newBoardGrid[i] = [];
     const column = document.createElement("div");
     column.className = "game__grid__board__column";
     boardHTML[0].appendChild(newBoard);
     newBoard.appendChild(column);
-    for (let j = 0; j < 40; j++) {
+    for (let j = 0; j < 26; j++) {
       newBoardGrid[i][j] = 0;
       const cell = document.createElement("div");
       cell.className = "game__grid__board__cell";
@@ -157,6 +157,7 @@ function cleanGame() {
         "transparent";
     }
   }
+  stop();
 }
 
 module.exports = {

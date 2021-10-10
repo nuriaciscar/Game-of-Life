@@ -1,6 +1,6 @@
 const table = document.querySelector(".container__grid");
 
-function createTable() {
+const createBoard = () => {
   for (let i = 0; i < 40; i++) {
     const rows = document.createElement("div");
     table.appendChild(rows);
@@ -12,11 +12,11 @@ function createTable() {
       columns.classList.add("columns", `${i}-${j}`);
     }
   }
-}
-createTable();
+};
+createBoard();
 
-/* let matrix = [];
-function createBoard(cells) {
+let matrix = [];
+function newBoard(cells) {
   for (let i = 0; i < cells; i++) {
     matrix.push([]);
     for (let j = 0; j < cells; j++) {
@@ -24,16 +24,14 @@ function createBoard(cells) {
     }
   }
   return matrix;
-} */
+}
 
-const matrix = [
-  [0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 1],
-  [0, 0, 0, 0, 0, 1, 1],
-  [0, 0, 0, 0, 0, 0, 1],
-  [0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0],
+matrix = [
+  [0, 0, 0, 0, 0],
+  [0, 0, 1, 0, 0],
+  [0, 0, 1, 0, 0],
+  [0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 0],
 ];
 
 function checkCompany(matrix, i, j) {
@@ -101,4 +99,6 @@ console.table(checkMatrix(matrix));
 module.exports = {
   checkCompany,
   checkMatrix,
+  createBoard,
+  newBoard,
 };

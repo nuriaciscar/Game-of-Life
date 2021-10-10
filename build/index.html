@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="apple.icon.png" type="image/png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Scheherazade+New:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Game Of Life</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">Game Of Life</h1>
+    </header>
+
+    <main class="container">
+      <section class="container__options">
+        <hr />
+        <div class="container__options__buttons">
+          <input
+            type="button"
+            class="container__options__buttons__play"
+            value="PLAY"
+            onclick="loopGame()"
+          />
+          <input
+            type="button"
+            class="container__options__buttons__stop"
+            value="STOP"
+            onclick="stop()"
+          />
+          <input
+            type="button"
+            class="container__options__buttons__clear"
+            value="CLEAN"
+            onclick="cleanGame()"
+          />
+        </div>
+        <hr />
+      </section>
+      <section class="game__grid">
+        <div class="game__grid__board"></div>
+      </section>
+    </main>
+  </body>
+  <script src="GameOfLife.js"></script>
+</html>

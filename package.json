@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll --collect-coverage"
+    "test": "jest --watchAll --collect-coverage",
+    "css": "npx sass src/styles.scss build/styles.css"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.24.2",
-    "jest": "^27.2.5"
+    "jest": "^27.2.5",
+    "sass": "^1.42.1"
   }
 }

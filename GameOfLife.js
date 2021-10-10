@@ -50,16 +50,16 @@ function changeColor() {
   }
 }
 
-function newBoard(rows, columns) {
-  for (let i = 0; i < rows; i++) {
-    matrix.push([]);
-    for (let j = 0; j < columns; j++) {
-      matrix[i].push(0);
-      cell.style.backgroundColor = "transparent";
-    }
-  }
-  return matrix;
-}
+// function newBoard(rows, columns) {
+//   for (let i = 0; i < rows; i++) {
+//     matrix.push([]);
+//     for (let j = 0; j < columns; j++) {
+//       matrix[i].push(0);
+//       cell.style.backgroundColor = "transparent";
+//     }
+//   }
+//   return matrix;
+// }
 
 function checkCompany(matrix, i, j) {
   let count = 0;
@@ -95,7 +95,7 @@ function checkCompany(matrix, i, j) {
   return count;
 }
 
-function checkMatrix(matrix) {
+function checkMatrix() {
   const newBoard = [];
   for (let i = 0; i < matrix.length; i++) {
     newBoard[i] = [];
@@ -118,23 +118,51 @@ function checkMatrix(matrix) {
       }
     }
   }
+  transformBoard(newBoard);
   matrix = newBoard;
-  return matrix;
+  return newBoard;
+}
+
+function transformBoard(array) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array[i].length; j++) {
+      const divCell = array[i][j];
+      if (divCell === 0) {
+        document.getElementById(`${i}-${j}`).style.backgroundColor =
+          "transparent";
+      } else {
+        document.getElementById(`${i}-${j}`).style.backgroundColor = "black";
+      }
+    }
+  }
+}
+
+let loop = null;
+
+function loopGame() {
+  loop = setInterval(() => {
+    checkMatrix();
+  }, 1500);
+}
+
+function stop() {
+  clearInterval(loop);
+}
+
+function cleanGame() {
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      matrix[i][j] = 0;
+      document.getElementById(`${i}-${j}`).style.backgroundColor =
+        "transparent";
+    }
+  }
 }
 
 module.exports = {
   checkCompany,
   checkMatrix,
   createBoard,
-  newBoard,
+
   cleanGame,
 };
-
-function cleanGame() {
-  for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < matrix[i].length; j++) {
-      matrix[i][j] = 0;
-      cell.style.backgroundColor = "transparent";
-    }
-  }
-}

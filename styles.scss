@@ -7,13 +7,13 @@
 
 body {
   width: auto;
-  height: 100vh;
+  height: auto;
   padding: 0;
   margin: 0;
   background-color: rgb(245, 245, 245);
   background-image: url("./img/degradado3.png");
   background-repeat: no-repeat;
-  background-size: 75%;
+  background-size: 80%;
   background-position: left bottom;
   background-position-y: 150px;
 }
@@ -32,6 +32,9 @@ h1 {
   font-size: 80px;
 }
 
+h1:hover {
+  color: rgb(43, 125, 251);
+}
 .container {
   display: flex;
   justify-content: space-around;
@@ -39,7 +42,7 @@ h1 {
   flex-direction: column;
 
   &__options {
-    width: 650px;
+    width: 920px;
   }
 
   &__options__buttons {
@@ -47,6 +50,9 @@ h1 {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    :hover {
+      background-color: rgb(218, 255, 1);
+    }
   }
 
   &__options__buttons input {
@@ -61,45 +67,36 @@ h1 {
 
 hr {
   color: black;
-  background-color: black;
+  background-color: transparent;
   justify-content: center;
   align-items: center;
   display: flex;
 }
 
-.container__grid {
-  display: flex;
-  align-items: flex;
-  justify-content: center;
+.game__grid__board {
+  width: 920px;
+  height: 620px;
+  padding-bottom: 200px;
+  padding-top: 20px;
 
-  &__board {
+  &__new-board {
     display: flex;
+    height: 100%;
+  }
+  &__column {
+    display: flex;
+    background-color: transparent;
     flex-direction: column;
-    justify-content: space-between;
-    width: 300px;
-    flex: 300px;
-    background-color: blue;
-  }
-  .rows {
-    width: 100px;
-    height: 100px;
-    flex-grow: 1;
+    width: 30%;
+    height: 100%;
+
+    justify-content: space-around;
     border: none;
-    display: flex;
-    justify-content: space-between;
-    background-color: blue;
-    border: 2px solid black;
-
-    margin: 10px;
   }
-
-  .columns {
+  &__cell {
+    height: 100%;
     width: 100%;
-    border: none;
-    background-color: green;
-    background-size: 100%;
-    margin: 1px;
-    padding: 0;
-    border: 2px solid black;
+    border: 0.1px solid black;
+    background-color: transparent;
   }
 }

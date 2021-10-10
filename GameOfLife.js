@@ -1,17 +1,26 @@
-const board = document.querySelector(".container__grid");
+const boardHTML = document.getElementsByClassName("game__grid__board");
+const columns = document.getElementsByClassName("game__grid__board__column");
 
-const createBoard = () => {
-  for (let i = 0; i < 10; i++) {
-    const rows = document.createElement("div");
-    board.appendChild(rows);
-    rows.classList.add("rows", `rows-${i}`);
-    for (let j = 0; j < 10; j++) {
-      const columns = document.createElement("div");
-      rows.appendChild(columns);
-      columns.classList.add("columns", `${i}-${j}`);
+function createBoard() {
+  const newBoard = document.createElement("div");
+  newBoard.className = "game__grid__board__new-board";
+  for (let i = 0; i < 87; i++) {
+    const column = document.createElement("div");
+    column.className = "game__grid__board__column";
+    boardHTML[0].appendChild(newBoard);
+    newBoard.appendChild(column);
+  }
+  for (let i = 0; i < 87; i++) {
+    for (let j = 0; j < 40; j++) {
+      const cell = document.createElement("div");
+      cell.className = "game__grid__board__cell";
+      cell.id = `${i}-${j}`;
+      cell.style.backgroundColor = "transparent";
+      columns[i].appendChild(cell);
     }
   }
-};
+}
+
 createBoard();
 
 let matrix = [];
@@ -94,8 +103,6 @@ function checkMatrix(matrix) {
   matrix = newBoard;
   return matrix;
 }
-
-console.table(checkMatrix(matrix));
 
 module.exports = {
   checkCompany,

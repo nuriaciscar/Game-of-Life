@@ -55,6 +55,7 @@ function newBoard(rows, columns) {
     matrix.push([]);
     for (let j = 0; j < columns; j++) {
       matrix[i].push(0);
+      cell.style.backgroundColor = "transparent";
     }
   }
   return matrix;
@@ -126,12 +127,13 @@ module.exports = {
   checkMatrix,
   createBoard,
   newBoard,
+  cleanGame,
 };
 
 function cleanGame() {
-  for (let i = 0; i < 85; i++) {
-    for (let j = 0; j < 40; j++) {
-      newBoardGrid[i][j] = 0;
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      matrix[i][j] = 0;
       cell.style.backgroundColor = "transparent";
     }
   }

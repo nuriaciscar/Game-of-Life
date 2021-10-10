@@ -50,6 +50,8 @@ h1 :hover {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    padding-left: 60px;
+    padding-right: 60px;
     :hover {
       background-color: rgb(218, 255, 1);
     }
@@ -62,6 +64,10 @@ h1 :hover {
     cursor: pointer;
     padding: 1.5px;
     border: none;
+
+    &:first-of-type {
+      font-weight: 700;
+    }
   }
 }
 

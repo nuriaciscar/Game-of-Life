@@ -78,12 +78,15 @@ hr {
   background-color: blue;
 }
 .container__grid .rows {
-  width: 100%;
+  width: 100px;
+  height: 100px;
   flex-grow: 1;
   border: none;
   display: flex;
   justify-content: space-between;
   background-color: blue;
+  border: 2px solid black;
+  margin: 10px;
 }
 .container__grid .columns {
   width: 100%;
@@ -92,6 +95,7 @@ hr {
   background-size: 100%;
   margin: 1px;
   padding: 0;
+  border: 2px solid black;
 }
 
 /*# sourceMappingURL=styles.css.map */

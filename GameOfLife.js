@@ -1,12 +1,11 @@
-const table = document.querySelector(".container__grid");
+const board = document.querySelector(".container__grid");
 
 const createBoard = () => {
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < 10; i++) {
     const rows = document.createElement("div");
-    table.appendChild(rows);
+    board.appendChild(rows);
     rows.classList.add("rows", `rows-${i}`);
-
-    for (let j = 0; j < 40; j++) {
+    for (let j = 0; j < 10; j++) {
       const columns = document.createElement("div");
       rows.appendChild(columns);
       columns.classList.add("columns", `${i}-${j}`);
@@ -16,10 +15,11 @@ const createBoard = () => {
 createBoard();
 
 let matrix = [];
-function newBoard(cells) {
-  for (let i = 0; i < cells; i++) {
+
+function newBoard(rows, columns) {
+  for (let i = 0; i < rows; i++) {
     matrix.push([]);
-    for (let j = 0; j < cells; j++) {
+    for (let j = 0; j < columns; j++) {
       matrix[i].push(0);
     }
   }
@@ -91,7 +91,8 @@ function checkMatrix(matrix) {
       }
     }
   }
-  return newBoard;
+  matrix = newBoard;
+  return matrix;
 }
 
 console.table(checkMatrix(matrix));

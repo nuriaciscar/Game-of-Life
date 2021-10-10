@@ -1,26 +1,39 @@
-const table = document.querySelector(".container__grid);
+const table = document.querySelector(".container__grid");
 
 function createTable() {
- for (let i = 0; i < 40; i++) {
-   const rows = document.createElement("div");
+  for (let i = 0; i < 40; i++) {
+    const rows = document.createElement("div");
     table.appendChild(rows);
-    rows.classList.add("rows", `row-${i}`);
+    rows.classList.add("rows", `rows-${i}`);
 
     for (let j = 0; j < 40; j++) {
       const columns = document.createElement("div");
-      rows.appendChild(col);
+      rows.appendChild(columns);
       columns.classList.add("columns", `${i}-${j}`);
     }
- }
+  }
 }
- 
+createTable();
+
+/* let matrix = [];
+function createBoard(cells) {
+  for (let i = 0; i < cells; i++) {
+    matrix.push([]);
+    for (let j = 0; j < cells; j++) {
+      matrix[i].push(0);
+    }
+  }
+  return matrix;
+} */
 
 const matrix = [
-  [0, 0, 0, 0, 0],
-  [0, 0, 1, 0, 0],
-  [0, 0, 1, 0, 0],
-  [0, 0, 1, 0, 0],
-  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 1],
+  [0, 0, 0, 0, 0, 1, 1],
+  [0, 0, 0, 0, 0, 0, 1],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
 ];
 
 function checkCompany(matrix, i, j) {
@@ -58,34 +71,32 @@ function checkCompany(matrix, i, j) {
 }
 
 function checkMatrix(matrix) {
-  const newArr = [];
+  const newBoard = [];
   for (let i = 0; i < matrix.length; i++) {
-    newArr[i] = [];
+    newBoard[i] = [];
     for (let j = 0; j < matrix[i].length; j++) {
       const result = checkCompany(matrix, i, j);
       if (matrix[i][j] === 1) {
         if (result < 2) {
-          newArr[i][j] = 0;
+          newBoard[i][j] = 0;
         } else if (result === 2 || result === 3) {
-          newArr[i][j] = 1;
+          newBoard[i][j] = 1;
         } else if (result > 3) {
-          newArr[i][j] = 0;
+          newBoard[i][j] = 0;
         }
       } else if (matrix[i][j] === 0) {
         if (result === 3) {
-          newArr[i][j] = 1;
+          newBoard[i][j] = 1;
         } else {
-          newArr[i][j] = 0;
+          newBoard[i][j] = 0;
         }
       }
     }
   }
-  return newArr;
+  return newBoard;
 }
 
 console.table(checkMatrix(matrix));
-
-
 
 module.exports = {
   checkCompany,

@@ -13,15 +13,17 @@ body {
   background-color: whitesmoke;
   background-image: url("./img/degradado3.png");
   background-repeat: no-repeat;
-  background-size: 70%;
+  background-size: 75%;
   background-position: left bottom;
+  background-position-y: 150px;
 }
 
 .title {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 25px;
+  margin-bottom: 12px;
 }
 
 h1 {
@@ -30,8 +32,30 @@ h1 {
   font-size: 80px;
 }
 
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+.container__options {
+  width: 400px;
+}
+.container__options__buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.container__options__buttons div {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 25px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 1.5px;
+}
+
 hr {
-  width: 50%;
   color: black;
   background-color: black;
   justify-content: center;
@@ -39,18 +63,34 @@ hr {
   display: flex;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .container__grid {
+  display: flex;
+  align-items: flex;
+  justify-content: center;
+}
+.container__grid__board {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 300px;
   flex: 300px;
   background-color: blue;
+}
+.container__grid .rows {
+  width: 100%;
+  flex-grow: 1;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  background-color: blue;
+}
+.container__grid .columns {
+  width: 100%;
+  border: none;
+  background-color: green;
+  background-size: 100%;
+  margin: 1px;
+  padding: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */

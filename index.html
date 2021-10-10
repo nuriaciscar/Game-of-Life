@@ -10,17 +10,30 @@
       href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Scheherazade+New:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Game Of Life</title>
   </head>
   <body>
     <header>
       <h1 class="title">Game Of Life</h1>
-      <hr />
     </header>
 
     <main class="container">
-      <div id="container__grid"></div>
+      <section class="container__options">
+        <hr />
+        <div class="container__options__buttons">
+          <div>PLAY</div>
+          <div>NEW</div>
+        </div>
+        <hr />
+      </section>
+      <section class="container__grid">
+        <div class="container__grid__board"></div>
+      </section>
     </main>
   </body>
   <script src="GameOfLife.js"></script>

@@ -12,3 +12,5 @@ For a space that is empty or unpopulated
 - Each cell with three neighbors becomes populated.
 
 LINK: https://game-of-life-nuria.netlify.app ⭐️
+
+![](Gif.gif)
